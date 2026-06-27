@@ -278,6 +278,9 @@
             min-height: 0;
             height: 100%;
             display: block;
+            overflow-y: auto;
+            padding-right: 0.35rem;
+            overscroll-behavior: contain;
         }
 
         .tab-panel {
@@ -539,10 +542,10 @@
         }
 
         .leaderboard {
-            height: 100%;
-            min-height: 0;
+            min-height: 100%;
+            height: auto;
             display: grid;
-            grid-template-rows: auto minmax(0, 1fr);
+            grid-template-rows: auto auto;
             gap: 1.2rem;
         }
 
@@ -607,8 +610,7 @@
 
         .table-panel {
             min-height: 0;
-            display: flex;
-            flex-direction: column;
+            display: block;
             overflow: hidden;
         }
 
@@ -632,9 +634,7 @@
         }
 
         .table-body {
-            flex: 1 1 auto;
-            min-height: 0;
-            overflow-y: auto;
+            overflow: visible;
         }
 
         .table-row {
