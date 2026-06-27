@@ -249,6 +249,14 @@
             transform: translateY(-1px);
         }
 
+        .form-message {
+            min-height: 1.2rem;
+            margin: -0.25rem 0 0;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
         .side-link {
             display: flex;
             align-items: center;
@@ -690,6 +698,18 @@
             padding: 1.2rem 0.5rem 0;
         }
 
+        .podium.podium-single,
+        .podium.podium-pair {
+            display: flex;
+            align-items: end;
+            justify-content: center;
+        }
+
+        .podium.podium-single .podium-card,
+        .podium.podium-pair .podium-card {
+            width: min(260px, 100%);
+        }
+
         .podium-card {
             min-width: 0;
             min-height: 0;
@@ -890,7 +910,13 @@
         }
 
         .table-row {
+            width: 100%;
+            border: 0;
             background: rgba(255, 255, 255, 0.86);
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            text-align: left;
             transition: background 160ms ease, transform 160ms ease;
         }
 
@@ -960,6 +986,38 @@
             font-family: Sora, Inter, system-ui, sans-serif;
             font-size: 1.45rem;
             text-align: right;
+        }
+
+        .empty-state {
+            min-height: 220px;
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            border: 1px dashed var(--line);
+            border-radius: 0.9rem;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .empty-state .material-symbols-outlined {
+            color: var(--brand-blue);
+            font-size: 2.4rem;
+        }
+
+        .empty-state strong {
+            color: var(--brand-blue-dark);
+            font-size: 1rem;
+        }
+
+        .empty-row {
+            padding: 1.25rem;
+            color: var(--muted);
+            font-weight: 700;
+            text-align: center;
         }
 
         @media (max-width: 1120px) {

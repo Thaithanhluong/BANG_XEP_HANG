@@ -59,22 +59,23 @@
                     <div class="space-y-4">
                         <div>
                             <label for="team-name">Tên đội</label>
-                            <input id="team-name" type="text" placeholder="Nhập tên đội..." />
+                            <input id="team-name" type="text" placeholder="Nhập tên đội..." autocomplete="off" />
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label for="team-score">Điểm số</label>
-                                <input id="team-score" type="number" placeholder="000" />
+                                <input id="team-score" type="number" min="0" step="1" placeholder="000" />
                             </div>
                             <div>
                                 <label for="team-time">Thời gian</label>
-                                <input id="team-time" type="text" placeholder="MM:SS" />
+                                <input id="team-time" type="text" inputmode="numeric" maxlength="5" placeholder="00:00" autocomplete="off" />
                             </div>
                         </div>
-                        <button class="primary-action" type="button">
+                        <button class="primary-action" id="save-result" type="button">
                             <span class="material-symbols-outlined">save</span>
                             Cập nhật kết quả
                         </button>
+                        <p class="form-message" id="result-message" aria-live="polite"></p>
                     </div>
                 </section>
 
@@ -93,40 +94,7 @@
             <section class="content">
                 <div class="tab-panel active" id="leaderboard-tab" data-tab-panel>
                     <div class="leaderboard">
-                    <div class="podium" aria-label="Top 3 đội dẫn đầu">
-                        <article class="podium-card second podium-float">
-                            <div class="podium-profile">
-                                <span class="team-avatar podium-avatar" data-team="STEM Titans" aria-hidden="true"></span>
-                                <span class="rank-badge">2</span>
-                            </div>
-                            <div class="podium-copy">
-                                <p class="team-name">STEM Titans</p>
-                                <span class="score">980</span>
-                            </div>
-                            <div class="podium-block"><span>#2</span></div>
-                        </article>
-                        <article class="podium-card first podium-float">
-                            <div class="podium-profile">
-                                <span class="team-avatar podium-avatar" data-team="Robo-Warriors" aria-hidden="true"></span>
-                                <span class="rank-badge">1</span>
-                            </div>
-                            <div class="podium-copy">
-                                <p class="team-name">Robo-Warriors</p>
-                                <span class="score">1050</span>
-                            </div>
-                            <div class="podium-block"><span>#1</span></div>
-                        </article>
-                        <article class="podium-card third podium-float">
-                            <div class="podium-profile">
-                                <span class="team-avatar podium-avatar" data-team="Neural Knights" aria-hidden="true"></span>
-                                <span class="rank-badge">3</span>
-                            </div>
-                            <div class="podium-copy">
-                                <p class="team-name">Neural Knights</p>
-                                <span class="score">945</span>
-                            </div>
-                            <div class="podium-block"><span>#3</span></div>
-                        </article>
+                    <div class="podium" id="podium" aria-label="Top 3 đội dẫn đầu">
                     </div>
 
                     <div class="panel table-panel">
@@ -136,52 +104,7 @@
                             <div>Điểm số</div>
                             <div class="text-right">Thời gian</div>
                         </div>
-                        <div class="table-body">
-                            <div class="table-row leader">
-                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#1</span></div>
-                                <div class="table-team">
-                                    <span class="team-avatar table-avatar" data-team="Robo-Warriors" aria-hidden="true"></span>
-                                    <span>Robo-Warriors</span>
-                                </div>
-                                <div class="mono table-score">1050</div>
-                                <div class="mono text-right text-[#667085]">03:45</div>
-                            </div>
-                            <div class="table-row">
-                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#2</span></div>
-                                <div class="table-team">
-                                    <span class="team-avatar table-avatar" data-team="STEM Titans" aria-hidden="true"></span>
-                                    <span>STEM Titans</span>
-                                </div>
-                                <div class="mono table-score">980</div>
-                                <div class="mono text-right text-[#667085]">04:12</div>
-                            </div>
-                            <div class="table-row">
-                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#3</span></div>
-                                <div class="table-team">
-                                    <span class="team-avatar table-avatar" data-team="Neural Knights" aria-hidden="true"></span>
-                                    <span>Neural Knights</span>
-                                </div>
-                                <div class="mono table-score">945</div>
-                                <div class="mono text-right text-[#667085]">03:58</div>
-                            </div>
-                            <div class="table-row">
-                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#4</span></div>
-                                <div class="table-team">
-                                    <span class="team-avatar table-avatar" data-team="Cyber Sages" aria-hidden="true"></span>
-                                    <span>Cyber Sages</span>
-                                </div>
-                                <div class="mono table-score">912</div>
-                                <div class="mono text-right text-[#667085]">04:30</div>
-                            </div>
-                            <div class="table-row">
-                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#5</span></div>
-                                <div class="table-team">
-                                    <span class="team-avatar table-avatar" data-team="Eco Engineers" aria-hidden="true"></span>
-                                    <span>Eco Engineers</span>
-                                </div>
-                                <div class="mono table-score">885</div>
-                                <div class="mono text-right text-[#667085]">04:55</div>
-                            </div>
+                        <div class="table-body" id="leaderboard-body">
                         </div>
                     </div>
                 </div>
