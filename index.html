@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Robotics Challenge 2026 - Bảng xếp hạng</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Sora:wght@100..900&family=Space+Mono:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <img class="brand-logo" src="logo.png" alt="Mekong STEM" />
+                <div class="brand-copy">
+                    <h1>Giải đấu Open Robotics Challenge 2026</h1>
+                    <p>Bảng xếp hạng thi đấu</p>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <button class="nav-pill active" type="button" data-tab-target="leaderboard-tab" aria-pressed="true">
+                    <span class="material-symbols-outlined text-base">leaderboard</span>
+                    Bảng xếp hạng
+                </button>
+                <button class="nav-pill" type="button" data-tab-target="timer-tab" aria-pressed="false">
+                    <span class="material-symbols-outlined text-base">timer</span>
+                    Bộ đếm giờ
+                </button>
+                <button class="icon-button" type="button" aria-label="Cài đặt">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+                <button class="icon-button" type="button" aria-label="Toàn màn hình">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <aside class="panel sidebar">
+                <div class="event-chip">
+                    <div class="event-icon">
+                        <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">sports_score</span>
+                    </div>
+                    <div>
+                        <h3>Vòng chung kết</h3>
+                        <p class="m-0 text-sm">Mekong STEM • Arena Alpha</p>
+                    </div>
+                </div>
+
+                <section>
+                    <h4 class="mb-4 text-sm font-extrabold uppercase text-[#1559b7]">Cập nhật kết quả</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="team-name">Tên đội</label>
+                            <input id="team-name" type="text" placeholder="Nhập tên đội..." />
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="team-score">Điểm số</label>
+                                <input id="team-score" type="number" placeholder="000" />
+                            </div>
+                            <div>
+                                <label for="team-time">Thời gian</label>
+                                <input id="team-time" type="text" placeholder="MM:SS" />
+                            </div>
+                        </div>
+                        <button class="primary-action" type="button">
+                            <span class="material-symbols-outlined">save</span>
+                            Cập nhật kết quả
+                        </button>
+                    </div>
+                </section>
+
+                <div class="mt-auto border-t border-[#d8e1ef] pt-4">
+                    <a class="side-link" href="#">
+                        <span class="material-symbols-outlined">help</span>
+                        Hỗ trợ
+                    </a>
+                    <a class="side-link" href="#">
+                        <span class="material-symbols-outlined">history</span>
+                        Nhật ký hệ thống
+                    </a>
+                </div>
+            </aside>
+
+            <section class="content">
+                <div class="tab-panel active" id="leaderboard-tab" data-tab-panel>
+                    <div class="leaderboard">
+                    <div class="podium">
+                        <article class="podium-card">
+                            <div class="rank-badge">2</div>
+                            <div>
+                                <p class="team-name">Cyber Knights</p>
+                                <span class="score">1,240 pts</span>
+                            </div>
+                        </article>
+                        <article class="podium-card first">
+                            <div class="rank-badge">1</div>
+                            <div>
+                                <p class="team-name">Tech Titans</p>
+                                <span class="score">1,450 pts</span>
+                            </div>
+                        </article>
+                        <article class="podium-card">
+                            <div class="rank-badge">3</div>
+                            <div>
+                                <p class="team-name">Bronze Bots</p>
+                                <span class="score">1,120 pts</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="panel table-panel">
+                        <div class="table-head">
+                            <div>Hạng</div>
+                            <div>Tên đội</div>
+                            <div>Điểm số</div>
+                            <div class="text-right">Thời gian</div>
+                        </div>
+                        <div class="table-body">
+                            <div class="table-row leader">
+                                <div><span class="table-rank">1</span></div>
+                                <div class="table-team">
+                                    <span>Tech Titans</span>
+                                    <span class="leading-tag">Dẫn đầu</span>
+                                </div>
+                                <div class="mono text-[#6a501b]">1,450</div>
+                                <div class="mono text-right text-[#667085]">01:52</div>
+                            </div>
+                            <div class="table-row">
+                                <div><span class="table-rank">2</span></div>
+                                <div class="table-team">Cyber Knights</div>
+                                <div class="mono">1,240</div>
+                                <div class="mono text-right text-[#667085]">02:15</div>
+                            </div>
+                            <div class="table-row">
+                                <div><span class="table-rank">3</span></div>
+                                <div class="table-team">Bronze Bots</div>
+                                <div class="mono">1,120</div>
+                                <div class="mono text-right text-[#667085]">02:28</div>
+                            </div>
+                            <div class="table-row">
+                                <div><span class="table-rank">4</span></div>
+                                <div class="table-team">Delta Force</div>
+                                <div class="mono">980</div>
+                                <div class="mono text-right text-[#667085]">02:40</div>
+                            </div>
+                            <div class="table-row">
+                                <div><span class="table-rank">5</span></div>
+                                <div class="table-team">Neo Explorers</div>
+                                <div class="mono">850</div>
+                                <div class="mono text-right text-[#667085]">02:55</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="tab-panel timer-view" id="timer-tab" data-tab-panel>
+                    <div class="panel timer-panel">
+                        <div class="min-w-0 flex-1">
+                            <p class="timer-label">Thời gian còn lại</p>
+                            <div class="countdown" id="countdown">02:30</div>
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="timer-controls">
+                            <div class="preset-row">
+                                <button class="preset" type="button" onclick="addTime(150)">+2m30s</button>
+                                <button class="preset" type="button" onclick="addTime(120)">+2m</button>
+                                <button class="preset" type="button" onclick="addTime(90)">+1m30s</button>
+                                <button class="preset" type="button" onclick="addTime(60)">+1m</button>
+                            </div>
+                            <div class="round-actions">
+                                <button class="round-action play" id="btn-start" type="button" onclick="toggleTimer()" aria-label="Bắt đầu">
+                                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">play_arrow</span>
+                                </button>
+                                <button class="round-action pause" id="btn-pause" type="button" onclick="pauseTimer()" aria-label="Tạm dừng">
+                                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">pause</span>
+                                </button>
+                                <button class="round-action reset" type="button" onclick="resetTimer()" aria-label="Đặt lại">
+                                    <span class="material-symbols-outlined text-3xl">restart_alt</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="live-status">
+        <span class="live-dot"></span>
+        Live feed: connected
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+

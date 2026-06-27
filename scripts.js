@@ -1,0 +1,84 @@
+let timeLeft = 150;
+let timerId = null;
+let totalDuration = 150;
+
+const countdownEl = document.getElementById("countdown");
+const progressBar = document.getElementById("progress-bar");
+
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
+
+function updateUI() {
+    countdownEl.textContent = formatTime(timeLeft);
+    const progress = Math.max(0, Math.min(100, (timeLeft / totalDuration) * 100));
+    progressBar.style.width = `${progress}%`;
+
+    countdownEl.classList.remove("timer-critical");
+    countdownEl.style.color = "";
+
+    if (timeLeft < 10) {
+        countdownEl.classList.add("timer-critical");
+    } else if (timeLeft < 30) {
+        countdownEl.style.color = "#b54708";
+    }
+
+    if (timeLeft <= 0) {
+        clearInterval(timerId);
+        timerId = null;
+        countdownEl.textContent = "00:00";
+    }
+}
+
+function toggleTimer() {
+    if (timerId) return;
+    timerId = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+            updateUI();
+        }
+    }, 1000);
+    document.getElementById("btn-start").style.boxShadow = "0 0 0 5px rgba(6, 118, 71, 0.16)";
+    document.getElementById("btn-pause").style.boxShadow = "";
+}
+
+function pauseTimer() {
+    clearInterval(timerId);
+    timerId = null;
+    document.getElementById("btn-start").style.boxShadow = "";
+    document.getElementById("btn-pause").style.boxShadow = "0 0 0 5px rgba(181, 71, 8, 0.16)";
+}
+
+function resetTimer() {
+    pauseTimer();
+    timeLeft = 150;
+    totalDuration = 150;
+    updateUI();
+    document.getElementById("btn-pause").style.boxShadow = "";
+}
+
+function addTime(seconds) {
+    timeLeft = seconds;
+    totalDuration = seconds;
+    updateUI();
+}
+
+function switchTab(targetId) {
+    document.querySelectorAll("[data-tab-panel]").forEach((panel) => {
+        panel.classList.toggle("active", panel.id === targetId);
+    });
+
+    document.querySelectorAll("[data-tab-target]").forEach((tab) => {
+        const isActive = tab.dataset.tabTarget === targetId;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-pressed", String(isActive));
+    });
+}
+
+document.querySelectorAll("[data-tab-target]").forEach((tab) => {
+    tab.addEventListener("click", () => switchTab(tab.dataset.tabTarget));
+});
+
+updateUI();
