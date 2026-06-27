@@ -6,6 +6,7 @@ const countdownEl = document.getElementById("countdown");
 const progressBar = document.getElementById("progress-bar");
 const scoreTotalEl = document.getElementById("score-total");
 const scoreInputs = document.querySelectorAll(".score-input");
+const scoreResetButton = document.getElementById("score-reset");
 
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
@@ -95,6 +96,13 @@ function updateScoreTotal() {
 
 scoreInputs.forEach((input) => {
     input.addEventListener("input", updateScoreTotal);
+});
+
+scoreResetButton.addEventListener("click", () => {
+    scoreInputs.forEach((input) => {
+        input.value = "0";
+    });
+    updateScoreTotal();
 });
 
 updateUI();
