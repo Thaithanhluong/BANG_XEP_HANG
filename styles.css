@@ -285,6 +285,10 @@
             align-items: flex-start;
         }
 
+        .score-view.active {
+            display: block;
+        }
+
         .timer-panel {
             position: relative;
             overflow: hidden;
@@ -403,6 +407,100 @@
         .pause { background: #fff8e7; color: #b54708; border-color: #fedf89; }
         .reset { background: #eef4ff; color: var(--brand-blue-dark); border-color: #c7d7fe; }
 
+        .score-panel {
+            padding: 1.6rem;
+        }
+
+        .score-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .score-header h2 {
+            margin: 0;
+            color: var(--brand-blue-dark);
+            font-size: 1.45rem;
+            font-weight: 850;
+        }
+
+        .score-total-card {
+            min-width: 170px;
+            border-radius: 0.95rem;
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
+            color: white;
+            padding: 1rem 1.2rem;
+            text-align: right;
+            box-shadow: 0 16px 28px rgba(21, 89, 183, 0.22);
+        }
+
+        .score-total-card span {
+            display: block;
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .score-total-card strong {
+            display: block;
+            margin-top: 0.2rem;
+            font-family: "Space Mono", monospace;
+            font-size: 2.35rem;
+            line-height: 1;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0;
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: 0.95rem;
+            background: #fbfdff;
+        }
+
+        .score-item strong,
+        .score-item small {
+            display: block;
+        }
+
+        .score-item strong {
+            color: var(--brand-blue-dark);
+            font-family: Sora, sans-serif;
+            font-size: 1rem;
+            font-weight: 850;
+        }
+
+        .score-item small {
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-family: "Space Mono", monospace;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .score-input {
+            width: 110px;
+            flex: 0 0 110px;
+            text-align: center;
+            font-family: "Space Mono", monospace;
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
         .leaderboard {
             min-height: 100%;
             display: grid;
@@ -474,8 +572,8 @@
             overflow: hidden;
         }
 
-        .table-head,
-        .table-row {
+        .table-panel .table-head,
+        .table-panel .table-row {
             display: grid;
             grid-template-columns: 72px minmax(180px, 1.4fr) minmax(120px, 0.8fr) minmax(110px, 0.7fr);
             align-items: center;
@@ -576,6 +674,10 @@
                 flex-basis: auto;
             }
 
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+
             .preset-row,
             .round-actions {
                 justify-content: flex-start;
@@ -621,8 +723,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .table-head,
-            .table-row {
+            .table-panel .table-head,
+            .table-panel .table-row {
                 grid-template-columns: 52px minmax(0, 1fr) 88px;
             }
 
@@ -633,6 +735,22 @@
 
             .countdown {
                 font-size: 4.4rem;
+            }
+
+            .score-header,
+            .score-item {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .score-total-card {
+                width: 100%;
+                text-align: left;
+            }
+
+            .score-input {
+                width: 100%;
+                flex-basis: auto;
             }
 
         }

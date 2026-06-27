@@ -4,6 +4,8 @@ let totalDuration = 150;
 
 const countdownEl = document.getElementById("countdown");
 const progressBar = document.getElementById("progress-bar");
+const scoreTotalEl = document.getElementById("score-total");
+const scoreInputs = document.querySelectorAll(".score-input");
 
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
@@ -81,4 +83,19 @@ document.querySelectorAll("[data-tab-target]").forEach((tab) => {
     tab.addEventListener("click", () => switchTab(tab.dataset.tabTarget));
 });
 
+function updateScoreTotal() {
+    const total = Array.from(scoreInputs).reduce((sum, input) => {
+        const quantity = Math.max(0, Math.floor(Number(input.value) || 0));
+        const scoreValue = Number(input.dataset.scoreValue) || 0;
+        return sum + quantity * scoreValue;
+    }, 0);
+
+    scoreTotalEl.textContent = total.toLocaleString("vi-VN");
+}
+
+scoreInputs.forEach((input) => {
+    input.addEventListener("input", updateScoreTotal);
+});
+
 updateUI();
+updateScoreTotal();

@@ -29,8 +29,8 @@
                     <span class="material-symbols-outlined text-base">timer</span>
                     Bộ đếm giờ
                 </button>
-                <button class="nav-pill" type="button" data-tab-target="timer-tab" aria-pressed="false">
-                    <span class="material-symbols-outlined text-base">timer</span>
+                <button class="nav-pill" type="button" data-tab-target="score-tab" aria-pressed="false">
+                    <span class="material-symbols-outlined text-base">calculate</span>
                     Máy tính điểm
                 </button>
                 <button class="icon-button" type="button" aria-label="Cài đặt">
@@ -190,6 +190,55 @@
                                     <span class="material-symbols-outlined text-3xl">restart_alt</span>
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel score-view" id="score-tab" data-tab-panel>
+                    <div class="panel score-panel">
+                        <div class="score-header">
+                            <div>
+                                <p class="timer-label">Máy tính điểm</p>
+                                <h2>Tổng hợp kết quả</h2>
+                            </div>
+                            <div class="score-total-card">
+                                <span>Tổng điểm</span>
+                                <strong id="score-total">0</strong>
+                            </div>
+                        </div>
+
+                        <div class="score-grid">
+                            <label class="score-item" for="score-sphere-1">
+                                <span>
+                                    <strong>Khối cầu tầng 1</strong>
+                                    <small>5 điểm / khối</small>
+                                </span>
+                                <input id="score-sphere-1" class="score-input" type="number" min="0" step="1" value="0" data-score-value="5" />
+                            </label>
+
+                            <label class="score-item" for="score-sphere-2">
+                                <span>
+                                    <strong>Khối cầu tầng 2</strong>
+                                    <small>8 điểm / khối</small>
+                                </span>
+                                <input id="score-sphere-2" class="score-input" type="number" min="0" step="1" value="0" data-score-value="8" />
+                            </label>
+
+                            <label class="score-item" for="score-cube">
+                                <span>
+                                    <strong>Khối vuông</strong>
+                                    <small>10 điểm / khối</small>
+                                </span>
+                                <input id="score-cube" class="score-input" type="number" min="0" step="1" value="0" data-score-value="10" />
+                            </label>
+
+                            <label class="score-item" for="score-bonus">
+                                <span>
+                                    <strong>Thưởng đặc biệt</strong>
+                                    <small>20 điểm / lần</small>
+                                </span>
+                                <input id="score-bonus" class="score-input" type="number" min="0" step="1" value="0" data-score-value="20" />
+                            </label>
                         </div>
                     </div>
                 </div>
