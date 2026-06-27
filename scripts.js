@@ -7,6 +7,20 @@ const progressBar = document.getElementById("progress-bar");
 const scoreTotalEl = document.getElementById("score-total");
 const scoreInputs = document.querySelectorAll(".score-input");
 const scoreResetButton = document.getElementById("score-reset");
+const teamAvatars = document.querySelectorAll(".team-avatar");
+
+const avatarPalette = [
+    "#0056b3",
+    "#00796b",
+    "#7b1fa2",
+    "#c2185b",
+    "#d84315",
+    "#2e7d32",
+    "#3949ab",
+    "#745043",
+    "#006d77",
+    "#8a6d00",
+];
 
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
@@ -84,6 +98,25 @@ document.querySelectorAll("[data-tab-target]").forEach((tab) => {
     tab.addEventListener("click", () => switchTab(tab.dataset.tabTarget));
 });
 
+function getTeamInitial(teamName) {
+    const trimmedName = teamName.trim();
+    return trimmedName ? trimmedName[0].toLocaleUpperCase("vi-VN") : "?";
+}
+
+function getStablePaletteIndex(value) {
+    return Array.from(value).reduce((hash, char) => hash + char.charCodeAt(0), 0) % avatarPalette.length;
+}
+
+function initTeamAvatars() {
+    teamAvatars.forEach((avatar) => {
+        const teamName = avatar.dataset.team || avatar.textContent || "";
+        const color = avatarPalette[getStablePaletteIndex(teamName)];
+        avatar.textContent = getTeamInitial(teamName);
+        avatar.style.setProperty("--avatar-bg", color);
+        avatar.setAttribute("title", teamName);
+    });
+}
+
 function updateScoreTotal() {
     const total = Array.from(scoreInputs).reduce((sum, input) => {
         const quantity = Math.max(0, Math.floor(Number(input.value) || 0));
@@ -107,3 +140,4 @@ scoreResetButton.addEventListener("click", () => {
 
 updateUI();
 updateScoreTotal();
+initTeamAvatars();

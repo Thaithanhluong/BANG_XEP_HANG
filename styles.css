@@ -679,6 +679,289 @@
             font-weight: 800;
         }
 
+        .leaderboard {
+            gap: 1rem;
+        }
+
+        .podium {
+            grid-template-columns: minmax(140px, 0.9fr) minmax(170px, 1fr) minmax(140px, 0.9fr);
+            gap: 0.85rem;
+            min-height: 300px;
+            padding: 1.2rem 0.5rem 0;
+        }
+
+        .podium-card {
+            min-width: 0;
+            min-height: 0;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.45rem;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            text-align: center;
+        }
+
+        .podium-card.first {
+            min-height: 0;
+            border: 0;
+            background: transparent;
+        }
+
+        .podium-float {
+            animation: podium-float 3s ease-in-out infinite;
+        }
+
+        .podium-card.second {
+            animation-delay: 0.45s;
+        }
+
+        .podium-card.third {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes podium-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .podium-profile {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-avatar {
+            --avatar-bg: #1559b7;
+            --avatar-fg: #ffffff;
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            border-radius: 999px;
+            background:
+                radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.34), transparent 30%),
+                linear-gradient(135deg, color-mix(in srgb, var(--avatar-bg), white 10%), var(--avatar-bg));
+            color: var(--avatar-fg);
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .podium-avatar {
+            width: 78px;
+            height: 78px;
+            border: 4px solid #e4e8f0;
+            box-shadow: 0 16px 30px rgba(18, 44, 87, 0.16);
+            font-size: 2rem;
+        }
+
+        .first .podium-avatar {
+            width: 110px;
+            height: 110px;
+            border-color: #fdc003;
+            box-shadow: 0 20px 42px rgba(106, 80, 27, 0.24);
+            font-size: 2.65rem;
+        }
+
+        .third .podium-avatar {
+            border-color: #d9b6a7;
+        }
+
+        .rank-badge {
+            position: absolute;
+            right: -0.25rem;
+            bottom: -0.25rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            background: #8b95a5;
+            color: white;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.78rem;
+            box-shadow: 0 8px 16px rgba(18, 44, 87, 0.18);
+        }
+
+        .first .rank-badge {
+            width: 34px;
+            height: 34px;
+            background: #fdc003;
+            color: #6c5000;
+        }
+
+        .third .rank-badge {
+            background: #745043;
+        }
+
+        .podium-copy {
+            min-height: 62px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.1rem;
+        }
+
+        .team-name {
+            color: #111827;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.98rem;
+            line-height: 1.15;
+            overflow-wrap: anywhere;
+        }
+
+        .first .team-name {
+            color: #004491;
+            font-size: 1.35rem;
+        }
+
+        .score {
+            color: #003f87;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .first .score {
+            color: #785900;
+            font-size: 1rem;
+        }
+
+        .podium-block {
+            width: min(100%, 220px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem 0.5rem 0 0;
+            border-top: 4px solid #c2c6d4;
+            background: rgba(226, 226, 226, 0.5);
+        }
+
+        .second .podium-block {
+            height: 96px;
+        }
+
+        .first .podium-block {
+            height: 150px;
+            border-color: #fdc003;
+            background: rgba(253, 192, 3, 0.12);
+        }
+
+        .third .podium-block {
+            height: 78px;
+            border-color: rgba(116, 80, 67, 0.36);
+            background: rgba(116, 80, 67, 0.1);
+        }
+
+        .podium-block span {
+            color: rgba(114, 119, 132, 0.26);
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            font-weight: 900;
+        }
+
+        .first .podium-block span {
+            color: rgba(253, 192, 3, 0.34);
+        }
+
+        .third .podium-block span {
+            color: rgba(116, 80, 67, 0.24);
+        }
+
+        .table-panel {
+            border-radius: 0.75rem;
+            box-shadow: 0 12px 32px rgba(0, 86, 179, 0.08);
+        }
+
+        .table-panel .table-head,
+        .table-panel .table-row {
+            grid-template-columns: 92px minmax(180px, 1.4fr) minmax(120px, 0.8fr) minmax(110px, 0.7fr);
+            padding: 0.85rem 1.35rem;
+        }
+
+        .table-head {
+            background: #f3f3f4;
+            color: #424752;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.64rem;
+            letter-spacing: 0.04em;
+        }
+
+        .table-row {
+            background: rgba(255, 255, 255, 0.86);
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        .table-row:hover {
+            background: rgba(0, 86, 179, 0.04);
+            transform: translateX(2px);
+        }
+
+        .table-row.leader {
+            background: #ffffff;
+        }
+
+        .rank-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            min-width: 0;
+        }
+
+        .rank-accent {
+            width: 3px;
+            height: 34px;
+            border-radius: 999px;
+            background: #c2c6d4;
+        }
+
+        .leader .rank-accent {
+            background: #fdc003;
+        }
+
+        .table-row:nth-child(3) .rank-accent {
+            background: #ebbcac;
+        }
+
+        .table-rank {
+            width: auto;
+            height: auto;
+            display: inline;
+            border-radius: 0;
+            background: transparent;
+            color: #424752;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .leader .table-rank {
+            background: transparent;
+            color: #785900;
+        }
+
+        .table-team {
+            gap: 0.85rem;
+            color: #111827;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 0.98rem;
+        }
+
+        .table-avatar {
+            width: 32px;
+            height: 32px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36), 0 8px 16px rgba(18, 44, 87, 0.14);
+            font-size: 0.82rem;
+        }
+
+        .table-score {
+            color: #003f87;
+            font-family: Sora, Inter, system-ui, sans-serif;
+            font-size: 1.45rem;
+            text-align: right;
+        }
+
         @media (max-width: 1120px) {
             body {
                 overflow: auto;
@@ -712,6 +995,10 @@
         }
 
         @media (max-width: 760px) {
+            .app-shell {
+                grid-template-rows: auto 1fr;
+            }
+
             .topbar {
                 height: auto;
                 align-items: flex-start;

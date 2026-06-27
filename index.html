@@ -93,27 +93,39 @@
             <section class="content">
                 <div class="tab-panel active" id="leaderboard-tab" data-tab-panel>
                     <div class="leaderboard">
-                    <div class="podium">
-                        <article class="podium-card">
-                            <div class="rank-badge">2</div>
-                            <div>
-                                <p class="team-name">Cyber Knights</p>
-                                <span class="score">1,240</span>
+                    <div class="podium" aria-label="Top 3 đội dẫn đầu">
+                        <article class="podium-card second podium-float">
+                            <div class="podium-profile">
+                                <span class="team-avatar podium-avatar" data-team="STEM Titans" aria-hidden="true"></span>
+                                <span class="rank-badge">2</span>
                             </div>
+                            <div class="podium-copy">
+                                <p class="team-name">STEM Titans</p>
+                                <span class="score">980</span>
+                            </div>
+                            <div class="podium-block"><span>#2</span></div>
                         </article>
-                        <article class="podium-card first">
-                            <div class="rank-badge">1</div>
-                            <div>
-                                <p class="team-name">Tech Titans</p>
-                                <span class="score">1,450</span>
+                        <article class="podium-card first podium-float">
+                            <div class="podium-profile">
+                                <span class="team-avatar podium-avatar" data-team="Robo-Warriors" aria-hidden="true"></span>
+                                <span class="rank-badge">1</span>
                             </div>
+                            <div class="podium-copy">
+                                <p class="team-name">Robo-Warriors</p>
+                                <span class="score">1050</span>
+                            </div>
+                            <div class="podium-block"><span>#1</span></div>
                         </article>
-                        <article class="podium-card">
-                            <div class="rank-badge">3</div>
-                            <div>
-                                <p class="team-name">Bronze Bots</p>
-                                <span class="score">1,120</span>
+                        <article class="podium-card third podium-float">
+                            <div class="podium-profile">
+                                <span class="team-avatar podium-avatar" data-team="Neural Knights" aria-hidden="true"></span>
+                                <span class="rank-badge">3</span>
                             </div>
+                            <div class="podium-copy">
+                                <p class="team-name">Neural Knights</p>
+                                <span class="score">945</span>
+                            </div>
+                            <div class="podium-block"><span>#3</span></div>
                         </article>
                     </div>
 
@@ -126,37 +138,49 @@
                         </div>
                         <div class="table-body">
                             <div class="table-row leader">
-                                <div><span class="table-rank">1</span></div>
+                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#1</span></div>
                                 <div class="table-team">
-                                    <span>Tech Titans</span>
-                                    <span class="leading-tag">Dẫn đầu</span>
+                                    <span class="team-avatar table-avatar" data-team="Robo-Warriors" aria-hidden="true"></span>
+                                    <span>Robo-Warriors</span>
                                 </div>
-                                <div class="mono text-[#6a501b]">1,450</div>
-                                <div class="mono text-right text-[#667085]">01:52</div>
+                                <div class="mono table-score">1050</div>
+                                <div class="mono text-right text-[#667085]">03:45</div>
                             </div>
                             <div class="table-row">
-                                <div><span class="table-rank">2</span></div>
-                                <div class="table-team">Cyber Knights</div>
-                                <div class="mono">1,240</div>
-                                <div class="mono text-right text-[#667085]">02:15</div>
+                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#2</span></div>
+                                <div class="table-team">
+                                    <span class="team-avatar table-avatar" data-team="STEM Titans" aria-hidden="true"></span>
+                                    <span>STEM Titans</span>
+                                </div>
+                                <div class="mono table-score">980</div>
+                                <div class="mono text-right text-[#667085]">04:12</div>
                             </div>
                             <div class="table-row">
-                                <div><span class="table-rank">3</span></div>
-                                <div class="table-team">Bronze Bots</div>
-                                <div class="mono">1,120</div>
-                                <div class="mono text-right text-[#667085]">02:28</div>
+                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#3</span></div>
+                                <div class="table-team">
+                                    <span class="team-avatar table-avatar" data-team="Neural Knights" aria-hidden="true"></span>
+                                    <span>Neural Knights</span>
+                                </div>
+                                <div class="mono table-score">945</div>
+                                <div class="mono text-right text-[#667085]">03:58</div>
                             </div>
                             <div class="table-row">
-                                <div><span class="table-rank">4</span></div>
-                                <div class="table-team">Delta Force</div>
-                                <div class="mono">980</div>
-                                <div class="mono text-right text-[#667085]">02:40</div>
+                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#4</span></div>
+                                <div class="table-team">
+                                    <span class="team-avatar table-avatar" data-team="Cyber Sages" aria-hidden="true"></span>
+                                    <span>Cyber Sages</span>
+                                </div>
+                                <div class="mono table-score">912</div>
+                                <div class="mono text-right text-[#667085]">04:30</div>
                             </div>
                             <div class="table-row">
-                                <div><span class="table-rank">5</span></div>
-                                <div class="table-team">Neo Explorers</div>
-                                <div class="mono">850</div>
-                                <div class="mono text-right text-[#667085]">02:55</div>
+                                <div class="rank-cell"><span class="rank-accent"></span><span class="table-rank">#5</span></div>
+                                <div class="table-team">
+                                    <span class="team-avatar table-avatar" data-team="Eco Engineers" aria-hidden="true"></span>
+                                    <span>Eco Engineers</span>
+                                </div>
+                                <div class="mono table-score">885</div>
+                                <div class="mono text-right text-[#667085]">04:55</div>
                             </div>
                         </div>
                     </div>
