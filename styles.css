@@ -554,34 +554,6 @@
             font-weight: 800;
         }
 
-        .live-status {
-            position: fixed;
-            right: 2rem;
-            bottom: 1.5rem;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.8rem 1rem;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 16px 34px rgba(18, 44, 87, 0.12);
-            color: var(--brand-blue-dark);
-            font-family: "Space Mono", monospace;
-            font-size: 0.72rem;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .live-dot {
-            width: 0.72rem;
-            height: 0.72rem;
-            border-radius: 999px;
-            background: #d92d20;
-            box-shadow: 0 0 0 6px rgba(217, 45, 32, 0.12);
-        }
-
         @media (max-width: 1120px) {
             body {
                 overflow: auto;
@@ -663,9 +635,4 @@
                 font-size: 4.4rem;
             }
 
-            .live-status {
-                left: 1rem;
-                right: 1rem;
-                justify-content: center;
-            }
         }
